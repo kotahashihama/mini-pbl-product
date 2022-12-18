@@ -19,6 +19,28 @@ jobs:
               - '**/*.rb'
 
   #
+  # リント
+  #
+  lint-Ruby:
+    runs-on: ubuntu-20.04
+    needs: check-code-changes
+    if: ${{ needs.check-code-changes.outputs.ruby == 'true' }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        with:
+          ruby-version: 3.1.0
+
+      - name: Install Ruby dependencies
+        run: bundle
+
+      - name: Lint Ruby with RuboCop
+        run: rubocop
+
+  #
   # テスト
   #
   test-Ruby:
@@ -35,7 +57,7 @@ jobs:
           ruby-version: 3.1.0
 
       - name: Install Ruby dependencies
-        run: ./bin/bundle
+        run: bundle
 
       - name: Test Ruby with RSpec
-        run: ./bin/rails t
+        run: rails t
