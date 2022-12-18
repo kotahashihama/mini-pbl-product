@@ -1,24 +1,18 @@
-# README
+# G1 ちゃんねる（掲示板）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+G1 ちゃんねる: coming soon  
+プロジェクト管理: https://www.notion.so/kotahashihama/G1-dbdeb43a547545d19762d0fed5f8e09d
 
-Things you may want to cover:
+## 技術
 
-* Ruby version
+- Ruby 3.1.0
+- Ruby on Rails 7.0.4
+- GitHub Actions
+- Heroku
 
-* System dependencies
+## メンバー
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- 橋濱 @kotahashihama
+- 宮原 @daiphone0228
+- 大野 @hiroty777
+- 吉川 @y-kohei1228
