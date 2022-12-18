@@ -1,0 +1,9 @@
+name: pull_request
+on: pull_request
+
+jobs:
+  assign-author:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Assign the author to Pull Request
+        uses: technote-space/assign-author@v1

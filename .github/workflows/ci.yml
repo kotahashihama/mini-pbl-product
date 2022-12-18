@@ -1,0 +1,41 @@
+name: ci
+on: pull_request
+
+jobs:
+  #
+  # コードの変更を確認
+  #
+  check-code-changes:
+    runs-on: ubuntu-20.04
+    outputs:
+      ruby: ${{ steps.code-changes.outputs.ruby }}
+    steps:
+      - name: Check changes of code
+        uses: dorny/paths-filter@v2
+        id: code-changes
+        with:
+          filters: |
+            ruby:
+              - '**/*.rb'
+
+  #
+  # テスト
+  #
+  test-Ruby:
+    runs-on: ubuntu-20.04
+    needs: check-code-changes
+    if: ${{ needs.check-code-changes.outputs.ruby == 'true' }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        with:
+          ruby-version: 3.1.0
+
+      - name: Install Ruby dependencies
+        run: ./bin/bundle
+
+      - name: Test Ruby with RSpec
+        run: ./bin/rails t
