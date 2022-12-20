@@ -1,0 +1,62 @@
+Started GET "/" for ::1 at 2022-12-18 09:54:41 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cbase113/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cbase113/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 584)
+Completed 200 OK in 19ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4639)
+
+
+Started GET "/" for ::1 at 2022-12-18 10:37:56 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cbase113/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cbase113/.rbenv/versions/3.1.3/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.1ms | Allocations: 476)
+Completed 200 OK in 19ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 3300)
+
+
+Started GET "/" for 172.22.0.1 at 2022-12-18 04:36:50 +0000
+Cannot render console from 172.22.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.8ms | Allocations: 584)
+Completed 200 OK in 105ms (Views: 39.9ms | ActiveRecord: 0.0ms | Allocations: 4639)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-20 09:22:09 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.3ms | Allocations: 583)
+Completed 200 OK in 115ms (Views: 41.2ms | ActiveRecord: 0.0ms | Allocations: 4639)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-20 10:13:38 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.4ms | Allocations: 281)
+Completed 200 OK in 17ms (Views: 9.8ms | Allocations: 958)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-20 10:13:41 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 16)
+Completed 200 OK in 4ms (Views: 3.5ms | Allocations: 250)
+
+
+Started GET "/" for 172.18.0.1 at 2022-12-20 10:15:58 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.7ms | Allocations: 585)
+Completed 200 OK in 188ms (Views: 69.8ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started GET "/" for 172.19.0.1 at 2022-12-20 14:59:09 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.3ms | Allocations: 584)
+Completed 200 OK in 142ms (Views: 47.8ms | ActiveRecord: 0.0ms | Allocations: 4648)
+
+
