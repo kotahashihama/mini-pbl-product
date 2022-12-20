@@ -1,0 +1,15 @@
+version: '3'
+services:
+  rails:
+    container_name: rails
+    image: rails
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./project:/app
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true
+    restart: always

@@ -68,7 +68,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    ast (2.4.2)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
@@ -102,7 +101,6 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.6.3)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -127,11 +125,10 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.13.10-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
-    parallel (1.22.1)
-    parser (3.1.3.0)
-      ast (~> 2.4.1)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -165,34 +162,11 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0)
       zeitwerk (~> 2.5)
-    rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.6.1)
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
-    rubocop (1.40.0)
-      json (~> 2.3)
-      parallel (~> 1.10)
-      parser (>= 3.1.2.1)
-      rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
-      rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.23.0, < 2.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.24.0)
-      parser (>= 3.1.1.0)
-    rubocop-performance (1.15.1)
-      rubocop (>= 1.7.0, < 2.0)
-      rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.17.3)
-      activesupport (>= 4.2.0)
-      rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
-    rubocop-rspec (2.16.0)
-      rubocop (~> 1.33)
-    ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -205,6 +179,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.5.4-aarch64-linux)
     sqlite3 (1.5.4-arm64-darwin)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
@@ -216,7 +191,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.3.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -235,6 +209,8 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  aarch64-linux
+  aarch64-linux-musl
   arm64-darwin-21
 
 DEPENDENCIES
@@ -245,10 +221,6 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.4)
-  rubocop
-  rubocop-performance
-  rubocop-rails
-  rubocop-rspec
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
@@ -259,7 +231,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.1.0p185
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.3.26
