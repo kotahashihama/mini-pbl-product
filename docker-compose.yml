@@ -1,7 +1,7 @@
 version: '3'
 services:
-  rails:
-    container_name: rails
+  app:
+    container_name: app
     image: rails
     build:
       context: ./
