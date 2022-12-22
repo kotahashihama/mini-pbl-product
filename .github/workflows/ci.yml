@@ -36,9 +36,11 @@ jobs:
 
       - name: Install Ruby dependencies
         run: bundle
+        working-directory: ./project
 
       - name: Lint Ruby with RuboCop
         run: rubocop
+        working-directory: ./project
 
   #
   # テスト
@@ -58,6 +60,8 @@ jobs:
 
       - name: Install Ruby dependencies
         run: bundle
+        working-directory: ./project
 
       - name: Test Ruby with RSpec
         run: rails t
+        working-directory: ./project
