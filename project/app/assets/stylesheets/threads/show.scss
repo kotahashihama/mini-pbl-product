@@ -1,0 +1,19 @@
+// thread の show アクション（スレッド詳細画面）のスタイルを定義するところ
+
+@import "../threads";
+
+body {
+  background-color: $thread-background-color;
+}
+
+.post {
+  background-color: $post-background-color;
+}
+
+.one-line-post-field {
+  display: block;
+}
+
+.multi-line-post-field {
+  display: block;
+}
