@@ -1,0 +1,24 @@
+<%# トップページ %>
+
+<div style="display: flex; flex-direction: row-reverse">
+  <main style="display: flex; justify-content: center; width: calc(100% - 200px)">
+    <div>
+      <h1>G1 ちゃんねる</h1>
+
+      <div>
+        <input type="text" placeholder="スレッド検索">
+        <button>検索</button>
+      </div>
+    </div>
+  </main>
+
+  <aside style="width: 200px">
+    <ul>
+      <% 5.times do %>
+        <li>
+          <%= link_to "スレッド一覧", "/threads" %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<div>
