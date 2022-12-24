@@ -1,4 +1,7 @@
-<%# thread の show アクション（スレッド詳細画面 兼 投稿一覧画面）の構造 %>
+<%#
+  スレッド詳細画面（兼投稿一覧画面）の構造
+  URL パス: /boards/:board_id/threads/:thread_id
+%>
 
 <main class="thread">
   <h1>スレッドタイトル</h1>
@@ -24,5 +27,5 @@
     </form>
   </div>
 
-  <%= link_to "スレッド一覧", "/threads" %>
+  <%= link_to "スレッド一覧", "/boards/1" %>
 </main>

@@ -1,4 +1,7 @@
-<%# thread の index アクション（ボード一覧画面 兼 トップページ）の構造 %>
+<%#
+  ボード一覧画面（兼トップページ）の構造
+  URL パス: /
+%>
 
 <div style="display: flex; flex-direction: row-reverse">
   <main style="display: flex; justify-content: center; width: calc(100% - 200px)">
@@ -16,7 +19,7 @@
     <ul>
       <% 5.times do %>
         <li>
-          <%= link_to "スレッド一覧", "/threads" %>
+          <%= link_to "スレッド一覧", "/boards/1" %>
         </li>
       <% end %>
     </ul>
