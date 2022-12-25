@@ -1,4 +1,4 @@
-name: ci
+name: ci # 継続的インテグレーション
 on: pull_request
 
 jobs:
