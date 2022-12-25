@@ -1,0 +1,23 @@
+name: cd # 継続的デプロイ
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # 設定例 https://github.com/marketplace/actions/build-push-and-release-a-docker-container-to-heroku#your-github-action-workflow-file-might-look-like-this
+      - name: Build, push and release a Docker container to Heroku
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile
+          docker_options: '--no-cache'
+          process_type: web
