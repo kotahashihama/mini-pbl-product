@@ -1,0 +1,15 @@
+// スレッド詳細画面（兼投稿一覧画面）のスタイル
+
+@import "../threads";
+
+.post {
+  background-color: $post-background-color;
+}
+
+.one-line-post-field {
+  display: block;
+}
+
+.multi-line-post-field {
+  display: block;
+}
