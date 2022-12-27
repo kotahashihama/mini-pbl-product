@@ -7,25 +7,44 @@
   <h1>スレッドタイトル</h1>
 
   <%# 投稿 %>
+  
   <div class="posts">
     <% 5.times do %>
       <div class="post">
-        <p class="post-title">名前</p>
-        <p class="post-content">内容</p>
+        <div class="meta">
+          <span class="number">
+            投稿ID
+          </span>
+          <span class="name">
+            名前
+          <span class="date">
+            投稿日時
+          </span>
+          <span class="uid">
+            UID
+          </span>
+        </div>
+        <div class="post-content">
+
+          <span class="escaped">内容</p>
+        </div>
       </div>
     <% end %>
   </div>
 
+  <%= link_to "掲示板に戻る", "/boards/1" %>
+
   <%# 投稿フォーム %>
-  <div class="posting-form">
-    <form action="/threads/1/posts" method="post">
-      <input type="text" name="name" class="one-line-post-field">
-      <input type="email" name="email" class="one-line-post-field">
-      <textarea name="content" class="multi-line-post-field"></textarea>
-
-      <button type="submit">投稿</button>
-    </form>
-  </div>
-
-  <%= link_to "スレッド一覧", "/boards/1" %>
+  <div class="formbox">
+    <div class="stronger formheader">レスを投稿する</div>
+    <div class="formbody">
+      <form action="/threads/1/posts" method="post">
+        <input class="one-line-post-field formelem maxwidth" type="text" placeholder="名前（省略可）" name="name" size="70">
+        <input class="one-line-post-field formelem maxwidth" type="email" placeholder="メールアドレス（省略可）" name="email" class="" size="70">
+        <textarea class="multi-line-post-field" placeholder="コメント内容" rows="5" cols="70" wrap="off" name="content"></textarea>
+        <input type="button" class="oekaki_load1" value="お絵描きLOAD">
+        <button class="submitbtn btn" type="submit" name="submit">書き込む</button>
+      </form>
+    </div>
+  </div> 
 </main>
