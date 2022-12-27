@@ -79,5 +79,5 @@ group :test do
   gem "webdrivers"
 end
 
-gem "mysql2"
 gem "dotenv"
+gem "mysql2"
