@@ -12,35 +12,35 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_12_26_034219) do
   create_table "comments", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.integer "user_id", null: false
+    t.string "contributor"
     t.string "comment", null: false
+    t.integer "post_id", null: false
+    t.integer "user_id"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contributor"], name: "index_comments_on_contributor"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", charset: "utf8mb3", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.string "title", null: false
     t.string "detail", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["title"], name: "index_posts_on_title"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
-    t.string "login_id", null: false
+    t.string "email", null: false
     t.string "password", null: false
     t.string "name", null: false
-    t.string "email", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["login_id"], name: "index_users_on_login_id"
+    t.index ["email"], name: "index_users_on_email"
   end
 
 end
