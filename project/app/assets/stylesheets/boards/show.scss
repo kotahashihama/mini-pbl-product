@@ -1,5 +1,5 @@
 // ボード詳細画面（兼スレッド一覧画面）のスタイル
-    main.thread{
+    .thread{
         background-color: #F2F3F7;
         div.posts {
             color:#333333;
@@ -41,10 +41,6 @@
                     background-color: #FFFFFF;
                     padding:6px 12px;
                     margin:0px 0px 15px;
-                }
-                input.oekaki_load1{
-                    background-color: #F0F0F0;
-                    padding:1px 6px;
                 }
                 textarea.multi-line-post-field{
                     background-color: #FFFFFF;
