@@ -1,62 +1,59 @@
 // ボード詳細画面（兼スレッド一覧画面）のスタイル
-body {
-    main.thread{
-        background-color: #F2F3F7;
-        div.posts {
-            color:#333333;
-            div.post{
-                background-color: #EFEFEF;
-                div.meta{
-                    span.number{
-                        color: #333333;
-                        font-size: 14px;
-                    }
-                    span.name{
-                        color: #008000;
-                        font-size: 15px;
-                    }
-                    span.date{
-                        color: #333333;
-                        font-size:14px;
-                    }
-                    span.uid{
-                        color:#333333;
-                        font-size: 14px;
-                    }
+.thread{
+    background-color: #F2F3F7;
+    .posts {
+        color:#333333;
+        .post{
+            background-color: #EFEFEF;
+            .meta{
+                .number{
+                    color: #333333;
+                    font-size: 14px;
                 }
-                div.post-content{
+                .name{
+                    color: #008000;
+                    font-size: 15px;
+                }
+                .date{
+                    color: #333333;
+                    font-size:14px;
+                }
+                .uid{
                     color:#333333;
-                    font-size: 17px;
+                    font-size: 14px;
                 }
             }
-
+            .post-content{
+                color:#333333;
+                font-size: 17px;
+            }
         }
     }
-    div.stronger.formheader{
-        color: #48526A;
-        font-size: 16px;
-        font-family: Meiryo;
-        div.formbody{
-            form{
-                input.one-line-post-field.formelem.maxwidth{
-                    background-color: #FFFFFF;
-                    padding:6px 12px;
-                    margin:0px 0px 15px;
-                }
-                input.oekaki_load1{
-                    background-color: #F0F0F0;
-                    padding:1px 6px;
-                }
-                textarea.multi-line-post-field{
-                    background-color: #FFFFFF;
-                    padding:6px 12px;
-                    margin:0px 0px 15px;
-                }
-                button.submitbtn.btn{
-                    background-color: #333333;
-                    color:#FFFFFF;
-                    margin:0px 0px 10px;
-                }
+}
+.stronger.formheader{
+    color: #48526A;
+    font-size: 16px;
+    font-family: Meiryo;
+    div.formbody{
+        form{
+            .one-line-post-field.formelem.maxwidth{
+                background-color: #FFFFFF;
+                padding:6px 12px;
+                margin:0px 0px 15px;
+            }
+            .oekaki_load1{
+                background-color: #F0F0F0;
+                padding:1px 6px;
+            }
+            .multi-line-post-field{
+                background-color: #FFFFFF;
+                padding:6px 12px;
+                margin:0px 0px 15px;
+            }
+            .submitbtn.btn{
+                background-color: #333333;
+                color:#FFFFFF;
+                margin:0px 0px 10px;
             }
         }
     }
