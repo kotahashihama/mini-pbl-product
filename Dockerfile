@@ -7,7 +7,8 @@ WORKDIR /app
 # COPY Gemfile /app/Gemfile
 # COPY Gemfile.lock /app/Gemfile.lock
 COPY ./project /app
-RUN bundle install
+RUN gem update bundle
+RUN bundle install --jobs=`getconf _NPROCESSORS_ONLN`
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
