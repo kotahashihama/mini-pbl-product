@@ -1,46 +1,43 @@
 /*
   ボード詳細画面（兼スレッド一覧画面）のスタイル
-  URL パス: /boards/:board_id/threads/:thread_id
+  URL パス: /posts/:post_id
 */
-
 
 body {
   background-color: #f2f3f7;
 }
 
-.thread {
-  .posts {
-    color: #333;
+.posts-show {
+  color: #333;
 
-    .post {
-      background-color: #efefef;
+  .post {
+    background-color: #efefef;
 
-      .meta {
-        .number {
-          color: #333;
-          font-size: 14px;
-        }
-
-        .name {
-          color: #008000;
-          font-size: 15px;
-        }
-
-        .date {
-          color: #333;
-          font-size: 14px;
-        }
-
-        .user-id {
-          color: #333;
-          font-size: 14px;
-        }
-      }
-
-      .post-content {
+    .meta {
+      .number {
         color: #333;
-        font-size: 17px;
+        font-size: 14px;
       }
+
+      .name {
+        color: #008000;
+        font-size: 15px;
+      }
+
+      .date {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .user-id {
+        color: #333;
+        font-size: 14px;
+      }
+    }
+
+    .post-content {
+      color: #333;
+      font-size: 17px;
     }
   }
 }

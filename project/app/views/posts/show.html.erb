@@ -1,9 +1,9 @@
 <%#
   スレッド詳細画面（兼投稿一覧画面）の構造
-  URL パス: /boards/:board_id/threads/:thread_id
+  URL パス: /posts/:post_id
 %>
 
-<main class="thread">
+<main class="posts-show">
   <h1>スレッドタイトル</h1>
 
   <%# 投稿 %>
@@ -35,13 +35,13 @@
     <% end %>
   </div>
 
-  <%= link_to "掲示板に戻る", "/boards/1" %>
+  <%= link_to "掲示板に戻る", "/posts" %>
 
   <%# 投稿フォーム %>
   <div class="form-box">
     <div class="form-header">レスを投稿する</div>
 
-    <form class="form" action="/boards/1/threads/1/posts" method="post">
+    <form class="form" action="/posts/1" method="post">
       <textarea class="multi-line-post-field" placeholder="コメント内容" rows="5" cols="70" wrap="off" name="content"></textarea>
 
       <button class="submit-button" type="submit" name="submit">書き込む</button>
