@@ -62,6 +62,10 @@ jobs:
         run: bundle
         working-directory: ./project
 
+      - name: Execute migration
+        run: bin/rails db:migrate RAILS_ENV=test
+        working-directory: ./project
+
       - name: Test Ruby with RSpec
         run: rails t
         working-directory: ./project
