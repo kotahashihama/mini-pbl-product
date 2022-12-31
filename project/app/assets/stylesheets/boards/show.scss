@@ -1,60 +1,75 @@
-// ボード詳細画面（兼スレッド一覧画面）のスタイル
-.thread{
-    background-color: #F2F3F7;
-    .posts {
-        color:#333333;
-        .post{
-            background-color: #EFEFEF;
-            .meta{
-                .number{
-                    color: #333333;
-                    font-size: 14px;
-                }
-                .name{
-                    color: #008000;
-                    font-size: 15px;
-                }
-                .date{
-                    color: #333333;
-                    font-size:14px;
-                }
-                .uid{
-                    color:#333333;
-                    font-size: 14px;
-                }
-            }
-            .post-content{
-                color:#333333;
-                font-size: 17px;
-            }
-        }
-    }
+/*
+  ボード詳細画面（兼スレッド一覧画面）のスタイル
+  URL パス: /boards/:board_id/threads/:thread_id
+*/
+
+
+body {
+  background-color: #f2f3f7;
 }
-.stronger.formheader{
-    color: #48526A;
-    font-size: 16px;
-    font-family: Meiryo;
-    div.formbody{
-        form{
-            .one-line-post-field.formelem.maxwidth{
-                background-color: #FFFFFF;
-                padding:6px 12px;
-                margin:0px 0px 15px;
-            }
-            .oekaki_load1{
-                background-color: #F0F0F0;
-                padding:1px 6px;
-            }
-            .multi-line-post-field{
-                background-color: #FFFFFF;
-                padding:6px 12px;
-                margin:0px 0px 15px;
-            }
-            .submitbtn.btn{
-                background-color: #333333;
-                color:#FFFFFF;
-                margin:0px 0px 10px;
-            }
+
+.thread {
+  .posts {
+    color: #333;
+
+    .post {
+      background-color: #efefef;
+
+      .meta {
+        .number {
+          color: #333;
+          font-size: 14px;
         }
+
+        .name {
+          color: #008000;
+          font-size: 15px;
+        }
+
+        .date {
+          color: #333;
+          font-size: 14px;
+        }
+
+        .user-id {
+          color: #333;
+          font-size: 14px;
+        }
+      }
+
+      .post-content {
+        color: #333;
+        font-size: 17px;
+      }
     }
+  }
+}
+
+.form-box {
+  margin-top: 30px;
+}
+
+.form-header {
+  color: #48526a;
+  font-size: 16px;
+
+  .form {
+    .one-line-post-field {
+      background-color: #fff;
+      padding: 6px 12px;
+      margin: 0px 0px 15px;
+    }
+
+    .multi-line-post-field {
+      background-color: #fff;
+      padding: 6px 12px;
+      margin: 0px 0px 15px;
+    }
+
+    .submit-buttton {
+      background-color: #333;
+      color: #fff;
+      margin: 0px 0px 10px;
+    }
+  }
 }

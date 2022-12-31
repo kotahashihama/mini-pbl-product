@@ -7,7 +7,6 @@
   <h1>スレッドタイトル</h1>
 
   <%# 投稿 %>
-  
   <div class="posts">
     <% 5.times do %>
       <div class="post">
@@ -15,17 +14,21 @@
           <span class="number">
             投稿ID
           </span>
+
           <span class="name">
             名前
+          </span>
+
           <span class="date">
             投稿日時
           </span>
-          <span class="uid">
+
+          <span class="user-id">
             UID
           </span>
         </div>
-        <div class="post-content">
 
+        <div class="post-content">
           <span class="escaped">内容</p>
         </div>
       </div>
@@ -35,11 +38,13 @@
   <%= link_to "掲示板に戻る", "/boards/1" %>
 
   <%# 投稿フォーム %>
-  <div class="formbox">
-    <div class="stronger formheader">レスを投稿する</div>
-        <textarea class="multi-line-post-field" placeholder="コメント内容" rows="5" cols="70" wrap="off" name="content"></textarea>
-        <button class="submitbtn btn" type="submit" name="submit">書き込む</button>
-      </form>
-    </div>
-  </div> 
+  <div class="form-box">
+    <div class="form-header">レスを投稿する</div>
+
+    <form class="form" action="/boards/1/threads/1/posts" method="post">
+      <textarea class="multi-line-post-field" placeholder="コメント内容" rows="5" cols="70" wrap="off" name="content"></textarea>
+
+      <button class="submit-button" type="submit" name="submit">書き込む</button>
+    </form>
+  </div>
 </main>
