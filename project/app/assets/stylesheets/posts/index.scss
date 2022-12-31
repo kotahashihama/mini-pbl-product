@@ -2,3 +2,25 @@
   スレッド一覧画面のスタイル
   URL パス: /posts
 */
+
+body {
+  background-color: #f2f3f7;
+}
+
+.posts-index {
+  .top {
+    display: flex;
+    justify-content: center;
+  }
+
+  .heading-2 {
+    background: #efefef;
+  }
+
+  .thread-list {
+    color: #333333;
+    font-size: 14px;
+    background-color: #efefef;
+    text-align: left;
+  }
+}
