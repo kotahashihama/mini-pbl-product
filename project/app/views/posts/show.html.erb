@@ -8,43 +8,47 @@
 
   <%# 投稿 %>
   <div class="posts">
-    <% 5.times do %>
+    <% @comments.each do |comment| %>
       <div class="post">
         <div class="meta">
           <span class="number">
-            投稿ID
+            <%= comment.id %>
           </span>
 
           <span class="name">
-            名前
+            <%= comment.contributor.blank? ? '名無しさん' : comment.contributor %>
           </span>
 
           <span class="date">
-            投稿日時
-          </span>
-
-          <span class="user-id">
-            UID
+            <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
           </span>
         </div>
 
         <div class="post-content">
-          <span class="escaped">内容</p>
+          <span class="escaped"><%= simple_format comment.comment %></p>
         </div>
       </div>
     <% end %>
   </div>
 
-  <%= link_to "掲示板に戻る", "/posts" %>
+  <%= link_to "掲示板に戻る", "/" %>
 
   <%# 投稿フォーム %>
   <div class="form-box">
     <div class="form-header">レスを投稿する</div>
 
-    <form class="form" action="/posts/1" method="post">
-      <textarea class="multi-line-post-field" placeholder="コメント内容" rows="5" cols="70" wrap="off" name="content"></textarea>
+    <%= form_with model: @comment do |form| %>
+      <div>
+        <%= form.text_field :contributor, :class => 'one-line-post-field', :placeholder => '名前' %>
+      </div>
+
+      <div>
+        <%= form.text_area :comment, :class => 'multi-line-post-field', :placeholder => 'コメント内容' %>
+      </div>
+
+      <%= form.hidden_field :post_id, :value => params[:id] %>
 
       <button class="submit-button" type="submit" name="submit">書き込む</button>
-    </form>
+    <% end %>
   </div>
 </main>
