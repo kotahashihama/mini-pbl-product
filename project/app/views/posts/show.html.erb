@@ -16,7 +16,7 @@
           </span>
 
           <span class="name">
-            <%= comment.contributor.blank? ? '名無しさん' : comment.contributor %>
+            <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
           </span>
 
           <span class="date">
