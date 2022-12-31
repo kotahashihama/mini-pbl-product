@@ -1,0 +1,72 @@
+/*
+  スレッド詳細画面（兼投稿一覧画面）のスタイル
+  URL パス: /posts/:post_id
+*/
+
+body {
+  background-color: #f2f3f7;
+}
+
+.posts-show {
+  color: #333;
+
+  .post {
+    background-color: #efefef;
+
+    .meta {
+      .number {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .name {
+        color: #008000;
+        font-size: 15px;
+      }
+
+      .date {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .user-id {
+        color: #333;
+        font-size: 14px;
+      }
+    }
+
+    .post-content {
+      color: #333;
+      font-size: 17px;
+    }
+  }
+}
+
+.form-box {
+  margin-top: 30px;
+}
+
+.form-header {
+  color: #48526a;
+  font-size: 16px;
+
+  .form {
+    .one-line-post-field {
+      background-color: #fff;
+      padding: 6px 12px;
+      margin: 0px 0px 15px;
+    }
+
+    .multi-line-post-field {
+      background-color: #fff;
+      padding: 6px 12px;
+      margin: 0px 0px 15px;
+    }
+
+    .submit-buttton {
+      background-color: #333;
+      color: #fff;
+      margin: 0px 0px 10px;
+    }
+  }
+}
