@@ -19,7 +19,7 @@ services:
     container_name: db
     image: mysql:8.0.31-oracle
     environment:
-      MYSQL_ROOT_PASSWORD: ${ENV_MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: password
       TZ: "Asia/Tokyo"
     ports:
       - "3306:3306"
