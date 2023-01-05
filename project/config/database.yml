@@ -6,16 +6,16 @@
 #
 default: &default
   adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   timeout: 5000
 
 development:
   adapter: mysql2
   encoding: utf8
-  database: <%= ENV.fetch("DB_NAME") { "mini_pbl_db" } %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch("DB_USERNAME") { "root" } %>
-  password: <%= ENV.fetch("DB_PASSWORD") { "password" } %>
+  database: mini_pbl_db
+  pool: 5
+  username: root
+  password: password
   host: db
   # database: db/development.sqlite3
 
