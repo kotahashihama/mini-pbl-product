@@ -1,0 +1,19 @@
+.user-navigation {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: solid 1px #dedede;
+  background: white;
+
+  &-list {
+    display: flex;
+    margin: 0;
+    padding: 8px 24px;
+    list-style: none;
+
+    &-item {
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+}
