@@ -3,21 +3,122 @@
   URL パス: /posts
 %>
 
+
 <main class="posts-index">
   <h1 class="top">
     <%= link_to 'G1ちゃんねる', '/' %>
   </h1>
 
-  <h2>
-    <span class="heading-2">この掲示板の主なスレッド</span>
-  </h2>
-
-  <!--直近のスレッドを表示-->
-  <div class="thread-list">
-    <h4>直近のスレッド<h4>
-
-    <p class="thread-detail">
-      <%= link_to 'スレッドタイトル1', '/posts/1' %>
-    </p>
+<!--G1ちゃんねるの概要を表示-->
+  <h1>
+    <span class="common">G1ちゃんねる概要</span>
+  </h1>
+  <div style="line-height:1em;">
+    <p><font size="5">まだ開発中です。これから機能を拡充していきます!</font></p>
   </div>
+  <br>
+
+<!--スレッドタイトル一覧を表示(仕様は100件表示)-->
+  <h2>
+    <span class="common">この掲示板の主なスレッド</span>
+  </h2>
+  <div class="thread-list">
+    <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル1', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル2', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル3', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル4', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル5', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル6', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル7', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル8', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル9', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル10', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル11', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル12', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル13', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル14', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル15', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル16', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル17', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル18', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル19', '/posts/1' %>
+      </p>
+      <p class="thread-detail">
+        <%= link_to 'スレッドタイトル20', '/posts/1' %>
+      </p>
+    </div>
+  </div>
+  <b>
+    <a href="#new_thread">新規スレッド作成はこちら</a>
+  </b>
+
+<!--スレッド一覧を表示(仕様は10件表示)-->
+  <h2>
+    <span class="common">スレッド一覧</span>
+  </h2>
+<!--作成中なのでとりあえず改行してます-->
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+<br>
+
+<!--新規スレッド作成-->
+ <!--action部分はまだ出来ていないと思うので""にしてます-->
+<form method="POST" action="">
+  <a name="new_thread"></a>
+  <h2>
+    <span class="common">新規スレッド作成</span>
+  </h2>
+  <p style="margin: 0 0 0 2em; font-size:0.75em";>
+    <input type="submit" value="新規スレッド作成" name="submit">
+    <br>
+    スレッドタイトル :
+    <input type="text" name="subject" style="width: 24em;">
+    <br>
+    名前　　　　　　 :
+    <input type="text" name="FROM" style="width: 24em;">
+    <br>
+    <textarea style="width: 40em; height: 10.0em; word-wrap: break-word;" rows="4" cols="12" name="MESSAGE"></textarea> 
+  </p>
+</form>
 </main>
