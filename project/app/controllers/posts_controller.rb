@@ -1,9 +1,4 @@
 class PostsController < ApplicationController
-
-  # def new
-
-  # end
-
   def index
     # スレッド一覧取得メソッド
     Rails.logger.debug "index method called"
