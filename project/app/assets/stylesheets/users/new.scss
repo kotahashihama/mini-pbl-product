@@ -2,3 +2,76 @@
   ユーザー登録画面のスタイル
   URL パス: /sign-up
 */
+
+body{padding-top:40px;padding-bottom:40px;background-color:#eee;background-image:url(b.gif)}.form-signin{max-width:330px;padding:15px;margin:0 auto}.form-signin .form-signin-heading,.form-signin .checkbox{margin-bottom:10px}.form-signin .checkbox{font-weight:400}.form-signin .form-control{position:relative;height:auto;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:10px;font-size:16px}.form-signin .form-control:focus{z-index:2}.form-signin input[type=email]{margin-bottom:-1px;border-bottom-right-radius:0;border-bottom-left-radius:0}.form-signin input[type=password]{margin-bottom:10px;border-top-left-radius:0;border-top-right-radius:0}#inputRegPassword{margin-bottom:-1px;border-top-left-radius:0;border-top-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}.log{background-color:rgba(255,255,255,.6);margin:0 auto}.log a{text-decoration:none}.log-header{text-align:center}.be3-avtr{float:left!important;width:120px}.be3-avtr img{margin-top:3px;width:50px}.be3-status{margin-left:130px}.be3-status-text{padding-left:10px;padding-right:20px;margin-left:10px;margin-top:5px}.be3-status-header{margin-left:10px}.status-page{width:50%;margin:0 auto;background-color:#fff;padding:10px}.us{padding-left:8px;background:#f8f8f8;margin-bottom:5px;border-radius:2px;text-align:left}.bottom-nav{padding-top:10px}.bottom-nav a{text-decoration:none}.c-pass{margin-right:5px}.be3-clear{width:100%;height:1px}.be3full{width:100%}.scont{background-color:#f8f8f8;padding-top:5px;padding-left:5px;padding-right:5px;padding-bottom:5px;height:83px;word-wrap:break-word}.be-status{width:100%;padding-top:10px;padding-bottom:10px}.be-avatar{float:left;display:table;width:90px;height:90px;border:1px solid #e7e7e7;border-radius:4px}.be-avatar-img{padding:5px;display:table-cell;vertical-align:middle;position:relative}.be-stat-mleft{margin-left:100px}.be-name{font-size:20px;font-weight:700;padding-left:5px;padding-right:5px}.be-name span,textarea{display:inline-block}.be-id{font-size:14px;color:#66757f;padding-left:5px;padding-right:5px;padding-bottom:5px}.be-pt-ff-data{}.be-pt-ff-cont{display:inline-block;text-align:center;margin-right:5px}.be-pf{display:inline-block;padding-left:5px;padding-right:5px;padding-bottom:5px}.be-in-head{color:#8899a6}.be-in-cont{font-size:14px;font-weight:700}#enText{width:90%;display:inline-block;resize:none;padding:0;height:30px;font-size:20px}#esText{resize:none}#eStat{margin-left:20px;padding-right:20px;word-wrap:break-word;width:100%}.eStatCont{padding-top:10px;border-top:1px solid #e7e7e7}#status_control{text-align:right}#bimg{width:100%;max-height:90px}.be-each{display:inline-block;border:1px solid #000;margin:3px}.be-each-img{height:40px}#ePagi{text-align:center;word-wrap:break-word;margin-bottom:10px}.avatar-option{padding-left:15px;padding-right:15px;padding-top:15px}#ep{color:#66757f;font-weight:700}#be-avatar-overlay{position:absolute;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.3);text-align:center;font-weight:700;text-decoration:none;color:#fff;padding-top:40%}.be-modal{max-height:300px;overflow-y:auto}@media only screen and (max-width:1199px){.status-page{width:60%;margin:0 auto;background-color:#fff;padding:10px}}@media only screen and (max-width:991px){.status-page{width:80%;margin:0 auto;background-color:#fff;padding:10px}}@media only screen and (max-width:768px){.status-page{width:80%;margin:0 auto;background-color:#fff;padding:10px}}@media only screen and (max-width:670px){.status-page{width:100%;margin:0 auto;background-color:#fff;padding:10px}}@media only screen and (max-width:545px){.status-page{width:100%;margin:0 auto;background-color:#fff;padding:10px}.be-avatar{margin:auto;float:none;display:table;width:110px;height:110px;border:1px solid #e7e7e7;border-radius:4px}.be-stat-mleft{margin-left:0}.be-pt-ff-data{text-align:center;border-top:1px solid #e7e7e7;padding-top:5px}.be-pt-ff-cont{width:105px;display:inline-block;text-align:center;margin-right:5px}.be-name{text-align:center;font-size:20px;font-weight:700;padding-left:5px;padding-right:5px;margin-top:10px}.be-id{text-align:center;font-size:14px;color:#66757f;padding-left:5px;padding-right:5px;padding-bottom:5px;margin-top:5px;margin-bottom:10px}}@media only screen and (max-width:480px){.be3-status-text{padding-left:10px;padding-right:20px;margin-left:10px;margin-top:5px}.status-page{width:100%;margin:0 auto;background-color:#fff;padding:10px}.be3-avtr{float:none!important;width:220px;margin:0 auto}.be3-status{margin-left:0}.be3-hcontainer{margin-top:20px}.log{background-color:rgba(255,255,255,.6);width:100%;margin:0 auto}#ncont{margin-top:10px;margin-bottom:10px;text-align:center;word-wrap:break-word}#eStat{word-wrap:break-word;margin-left:0;padding-right:0;width:100%}}@media only screen and (min-width:674px){.log{background-color:rgba(255,255,255,.6);width:640px;margin:0 auto}}.login-footer{padding-top:10px}.login-footer span{display:block}
+
+.container {
+  background-color: rgba(255,255,255,6);
+  width: 640px;
+  margin: 0 auto;
+}
+
+.sign_in_page, .sign_up_page {
+  overflow-y: hidden;
+  // サインイン／サインアップページの表題スタイル
+  h1 {
+    width: 300px;
+    margin: 50px auto 0 auto;
+    font-size: 32px;
+    text-align: center;
+    color: var(--title-color)
+  }
+  // フォームブロックのスタイル
+  .sign_in_form, .sign_up_form {
+    margin: 40px auto 0 auto;
+    width: 400px;
+    padding: 20px;
+    background-color: #cdf;
+    // フォームブロックの表題スタイル
+    h2 {
+      margin-bottom: 20px;
+      font-family: fantasy;
+      font-size: 20px;
+      text-align: center;
+      color: var(--title-color)
+    }
+    // フォーム本体
+    form {
+      padding: 12px;
+      background-color: #8cf;
+      // フォーム内のinput要素
+      input {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 32px;
+        margin-bottom: 12px;
+        padding: 3px 10px;
+        font-size: 16px;
+      }
+      // フォーム内の送信ボタン
+      button {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+        margin-bottom: 15px;
+        padding: 5px;
+        background-color: #ccc;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        color: var(--title-color);
+        &:hover {
+          background-color: #d0d0d0;
+        }
+      }
+      // リンク関連の色
+      p {
+        text-align: center;
+        color: var(--title-color)
+      }
+    }
+  }
+}
+
+

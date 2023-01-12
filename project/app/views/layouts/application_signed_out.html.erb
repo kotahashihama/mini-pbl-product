@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>G1 ちゃんねる</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.5.0.min.js' %>
+  </head>
+
+  <body>
+    <% if flash.now.present? %>
+      <% flash.each do |type, message| %>
+        <p class="flash_message flash_message_<%= type %>"><%= message.html_safe %></p>
+      <% end %>
+    <% end %>
+    
+    <%= yield %>
+
+    <script>
+      window.setTimeout(() => {
+        $(".flash_message").slideUp();
+      }, 3000);
+    </script>
+  </body>
+</html>

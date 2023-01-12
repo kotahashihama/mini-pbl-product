@@ -1,0 +1,22 @@
+<%#
+  ログイン画面の構造
+  URL パス: /login
+%>
+
+<main class="sessions-new">
+  <%# ここにログイン画面を実装する %>
+
+  <div class="sign_in_page">
+    <h1>G1 ちゃんねる</h1>
+    <div class="sign_in_form">
+      <h2>サインインページ</h2>
+      <%= form_with model: @user, url: sign_in_path, local: true do |f| %>
+        <%= f.email_field :email, placeholder: "メールアドレスを入力" %>
+        <%= f.password_field :password, placeholder: "パスワードを入力" %>
+        <button>サインイン</button>
+        <p>ユーザー登録したい方は<%= link_to "サインアップへ", sign_up_path %></p>
+      <% end %>
+    </div>
+  </div>
+
+</main>
