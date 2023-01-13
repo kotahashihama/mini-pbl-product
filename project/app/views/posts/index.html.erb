@@ -26,7 +26,7 @@
     <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
       <% @posts.each do |post| %>
         <p class="thread-detail">
-          <%= link_to "#{post.title}", post_path(post) %>
+          <%= link_to post.title, post_path(post) %>
         </p>
       <% end %>
     </div>
@@ -63,13 +63,15 @@
     <%= form.text_field :title, :class => 'text-field', :placeholder => 'スレッドタイトル' %>
     <br>
   </div>
-  <div class="mb-5">
-    <%= form.label :title, "名前　　　　　　：" %>
-    <%= form.text_field :class => 'text-field', :placeholder => '名前' %>
-    <br>
-  </div>
-  <div class="mb-5">
-    <%= form.text_area :detail, :class => 'text-area-field', :placeholder => '内容' %>
-  </div>
+  <%= form.fields_for :comment do |comment_form| %>
+    <div class="mb-5">
+      <%= comment_form.label "名前　　　　　　：" %>
+      <%= comment_form.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
+      <br>
+    </div>
+    <div class="mb-5">
+      <%= comment_form.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
+    </div>
+  <% end %>
 <% end %>
 </main>

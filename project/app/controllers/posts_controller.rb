@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
+
+  # def new
+  #   @post = Post.new
+  #   @post.comments.build
+  # end
+
   def index
     # スレッド一覧取得メソッド
-    Rails.logger.debug "index method called"
     @posts = Post.all
     @post = Post.new
   end
@@ -12,13 +17,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug "create method called"
-    @post = Post.create(post_params)
+    # logger.debug("createに入った")
+    # logger.debug(post_params)
+    Post.create(post_params)
+    # @comment = Comment.new
 
     redirect_to controller: :posts, action: :index
   end
 
-  def post_params
-    params.require(:post).permit(:title, :detail)
-  end
+  private
+
+    def post_params
+      params.require(:post).permit(:title, comment_attributes: [:comment, :contributor])
+      # params.require(:post).permit(:title, :comment, :contributor)
+    end
+
 end
