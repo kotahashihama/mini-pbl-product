@@ -1,6 +1,12 @@
 <div class="user-navigation">
+  <div class="logo">
+    <%= link_to "G1 ちゃんねる", root_path %>
+  </div>
+
   <% if user_signed_in? %>
-    ようこそ、<%= current_user.name %>さん
+    <div>
+      <%= current_user.name %> さん
+    </div>
   <% end %>
 
   <ul class="user-navigation-list">
