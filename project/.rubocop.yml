@@ -10,3 +10,8 @@ AllCops:
 
 Documentation:
   Enabled: false
+MethodLength:
+  CountComments: false
+  Max: 50
+Metrics/AbcSize:
+  Max: 50
