@@ -1,6 +1,14 @@
 <div class="user-navigation">
+  <% if user_signed_in? %>
+    ようこそ、<%= current_user.name %>さん
+  <% end %>
+
   <ul class="user-navigation-list">
-    <li class="user-navigation-list-item"><%= link_to '新規登録', '/sign-up' %></li>
-    <li class="user-navigation-list-item"><%= link_to 'ログイン', '/login' %></li>
+    <% if user_signed_in? %>
+      <li class="user-navigation-list-item"><%= button_to "logout", destroy_user_session_path, method: :delete  %></li>
+    <% else %>
+      <li class="user-navigation-list-item"><%= button_to '新規登録', '/users/sign_up', method: :get %></li>
+      <li class="user-navigation-list-item"><%= button_to 'ログイン', '/users/sign_in', method: :get %></li>
+    <% end %>
   </ul>
 </div>
