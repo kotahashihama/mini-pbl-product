@@ -7,6 +7,4 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  get "/sign-up", to: "users#new"
-  get "/login", to: "sessions#new"
 end
