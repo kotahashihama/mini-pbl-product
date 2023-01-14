@@ -1,6 +1,20 @@
 <div class="user-navigation">
+  <div class="logo">
+    <%= link_to "G1 ちゃんねる", root_path %>
+  </div>
+
+  <% if user_signed_in? %>
+    <div>
+      <%= current_user.name %> さん
+    </div>
+  <% end %>
+
   <ul class="user-navigation-list">
-    <li class="user-navigation-list-item"><%= link_to '新規登録', '/sign-up' %></li>
-    <li class="user-navigation-list-item"><%= link_to 'ログイン', '/login' %></li>
+    <% if user_signed_in? %>
+      <li class="user-navigation-list-item"><%= button_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+    <% else %>
+      <li class="user-navigation-list-item"><%= button_to '新規登録', '/users/sign_up', method: :get %></li>
+      <li class="user-navigation-list-item"><%= button_to 'ログイン', '/users/sign_in', method: :get %></li>
+    <% end %>
   </ul>
 </div>

@@ -17,4 +17,23 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #f2f3f7;
+}
+
+.flash-message {
+  margin: 16px 32px;
+  padding: 10px;
+  border-radius: 8px;
+
+  &.notice {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #8ca993;
+  }
+
+  &.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #c5a3a6;
+  }
 }

@@ -1,6 +1,8 @@
 .user-navigation {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
   border-bottom: solid 1px #dedede;
   background: white;
 
@@ -15,5 +17,9 @@
         margin-right: 10px;
       }
     }
+  }
+
+  .logo {
+
   }
 }

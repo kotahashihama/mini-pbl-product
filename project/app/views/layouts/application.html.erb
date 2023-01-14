@@ -12,6 +12,17 @@
 
   <body>
     <%= render partial: "layouts/user_navigation" %>
+
+    <div>
+      <% if notice.present? %>
+        <p class="flash-message notice"><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? %>
+        <p class="flash-message alert"><%= alert %></p>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
