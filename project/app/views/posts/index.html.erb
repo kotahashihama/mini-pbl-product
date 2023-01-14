@@ -63,14 +63,14 @@
     <%= form.text_field :title, :class => 'text-field', :placeholder => 'スレッドタイトル' %>
     <br>
   </div>
-  <%= form.fields_for :comment do |comment_form| %>
+  <%= form.fields_for :comments do |comment| %>
     <div class="mb-5">
-      <%= comment_form.label "名前　　　　　　：" %>
-      <%= comment_form.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
+      <%= comment.label "名前　　　　　　：" %>
+      <%= comment.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
       <br>
     </div>
     <div class="mb-5">
-      <%= comment_form.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
+      <%= comment.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
     </div>
   <% end %>
 <% end %>

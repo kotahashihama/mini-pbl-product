@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
 
-  # def new
-  #   @post = Post.new
-  #   @post.comments.build
-  # end
-
   def index
     # スレッド一覧取得メソッド
     @posts = Post.all
     @post = Post.new
+    # 下記記載がないと、.erbファイルでfields_forを使用したときに要素自体が表示されない
+    @post.comments.build
   end
 
   def show
@@ -17,18 +14,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    # logger.debug("createに入った")
-    # logger.debug(post_params)
-    Post.create(post_params)
-    # @comment = Comment.new
-
-    redirect_to controller: :posts, action: :index
+    Post.create!(post_params)
+    redirect_to root_path
   end
 
   private
 
     def post_params
-      params.require(:post).permit(:title, comment_attributes: [:comment, :contributor])
+      params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
       # params.require(:post).permit(:title, :comment, :contributor)
     end
 
