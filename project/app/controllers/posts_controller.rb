@@ -9,7 +9,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comments = Comment.all
+    # show.html.erbに遷移するとこのメソッドを読みに来るので、対象post_idに紐づくcomment一覧を返す
+    @comments = Comment.where(post_id: params[:id])
     @comment = Comment.new
   end
 
@@ -22,7 +23,6 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
-      # params.require(:post).permit(:title, :comment, :contributor)
     end
 
 end
