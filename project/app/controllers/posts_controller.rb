@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     # スレッド一覧取得メソッド
     @posts = Post.all
@@ -21,8 +20,7 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
-    end
-
+  def post_params
+    params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
+  end
 end
