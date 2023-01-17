@@ -31,66 +31,46 @@
       <% end %>
     </div>
   </div>
-  <b>
-    <a href="#new_thread">新規スレッド作成はこちら</a>
-  </b>
 
 <!--スレッド一覧を表示(仕様は10件表示)-->
   <h2>
-    <span class="common">スレッド一覧</span>
+    <span class="common">スレッド抜粋一覧</span>
   </h2>
 
 <!--編集中-->
 <div class="posts">
-      <%# 最初のコメントを表示 %>
-      <div class="post">
-        <div class="meta">
-          <span class="number">
-            <%= @comments_first.id %>
-          </span>
+<%# 各スレッドごとにコメントを表示 %>
+<div class="posts">
+  <% for num in 1..@posts.last.id do %>
+    <% @posts.where(id: num).each do |post| %>
+      <%= post.title %>
+       <% @comments.where(post_id: num).each do |comment| %>
+        <div class="post">
+          <div class="meta">
+            <span class="number">
+              <%= comment.id %>
+            </span>
 
-          <span class="name">
-            <%= @comments_first.contributor.empty? ? '名無しさん' : @comments_first.contributor %>
-          </span>
+            <span class="name">
+              <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
+            </span>
 
-          <span class="date">
-            <%= @comments_first.created_at.strftime('%Y/%m/%d %H:%M') %>
-          </span>
+            <span class="date">
+              <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </span>
+          </div>
+
+          <div class="post-content">
+            <span class="escaped"><%= simple_format comment.comment %></p>
+          </div>
         </div>
-
-        <div class="post-content">
-          <span class="escaped"><%= simple_format @comments_first.comment %></p>
-        </div>
-      </div>
-
-      <%# 最後から3番目のコメントを表示 %>
-      <% @comments_last.each do |comment_last| %>
-      <div class="post">
-        <div class="meta">
-          <span class="number">
-            <%= comment_last.id %>
-          </span>
-
-          <span class="name">
-            <%= comment_last.contributor.empty? ? '名無しさん' : comment_last.contributor %>
-          </span>
-
-          <span class="date">
-            <%= comment_last.created_at.strftime('%Y/%m/%d %H:%M') %>
-          </span>
-        </div>
-
-        <div class="post-content">
-          <span class="escaped"><%= simple_format comment_last.comment %></p>
-        </div>
-      </div>
+        <% end %>
     <% end %>
-  </div>
+    <br>
+    <br>
+  <% end %>
+</div>
 
-
-
-<!--新規スレッド作成-->
-<!--action部分はまだ出来ていないと思うので""にしてます-->
 <%# 投稿フォーム %>
 <%= form_with model: @post do |form| %>
   <h2>
