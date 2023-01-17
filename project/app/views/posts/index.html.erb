@@ -95,107 +95,54 @@
     <span class="common">スレッド一覧</span>
   </h2>
 
-  <%# スレッド1 %>
-  <div class="posts">
-    <h3><%= "スレッドタイトル1"%></h3>
-    <%# コメント1番目 %>
-     <div class="post">
-        <div class="meta">
-          <%# 投稿ID表示 %>
-          <span class="number">
-            <%= "1"%>
-          </span>
-            
-          <span class="name">
-            <%# 投稿者表示 %>
-            <%= "投稿者1"%>
-          </span>
-
-          <span class="date">
-            <%# 日付表示 %>
-            <%= "2023/01/13"%>
-          </span>
-        </div>
-        <div class="post-content">
-          <%# 投稿内容(最初の一件と最後の10件を表示) %>
-          <%= "コメント1"%></p>
-        </div>
-      </div>
-      <%# コメント10番目 %>
+<!--編集中-->
+<div class="posts">
+      <%# 最初のコメントを表示 %>
       <div class="post">
         <div class="meta">
-          <%# 投稿ID表示 %>
           <span class="number">
-            <%= "1"%>
+            <%= @comments_first.id %>
           </span>
-            
+
           <span class="name">
-            <%# 投稿者表示 %>
-            <%= "投稿者1"%>
+            <%= @comments_first.contributor.empty? ? '名無しさん' : @comments_first.contributor %>
           </span>
 
           <span class="date">
-            <%# 日付表示 %>
-            <%= "2023/01/13"%>
+            <%= @comments_first.created_at.strftime('%Y/%m/%d %H:%M') %>
           </span>
         </div>
+
         <div class="post-content">
-          <%# 投稿内容(最初の一件と最後の10件を表示) %>
-          <%= "コメント10"%></p>
+          <span class="escaped"><%= simple_format @comments_first.comment %></p>
         </div>
       </div>
-  </div>
 
-<%# スレッド1 %>
-  <div class="posts">
-    <h3><%= "スレッドタイトル2"%></h3>
-    <%# コメント1番目 %>
-     <div class="post">
-        <div class="meta">
-          <%# 投稿ID表示 %>
-          <span class="number">
-            <%= "1"%>
-          </span>
-            
-          <span class="name">
-            <%# 投稿者表示 %>
-            <%= "投稿者1"%>
-          </span>
-
-          <span class="date">
-            <%# 日付表示 %>
-            <%= "2023/01/13"%>
-          </span>
-        </div>
-        <div class="post-content">
-          <%# 投稿内容(最初の一件と最後の10件を表示) %>
-          <%= "コメント1"%></p>
-        </div>
-      </div>
-      <%# コメント10番目 %>
+      <%# 最後から3番目のコメントを表示 %>
+      <% @comments_last.each do |comment_last| %>
       <div class="post">
         <div class="meta">
-          <%# 投稿ID表示 %>
           <span class="number">
-            <%= "1"%>
+            <%= comment_last.id %>
           </span>
-            
+
           <span class="name">
-            <%# 投稿者表示 %>
-            <%= "投稿者1"%>
+            <%= comment_last.contributor.empty? ? '名無しさん' : comment_last.contributor %>
           </span>
 
           <span class="date">
-            <%# 日付表示 %>
-            <%= "2023/01/13"%>
+            <%= comment_last.created_at.strftime('%Y/%m/%d %H:%M') %>
           </span>
         </div>
+
         <div class="post-content">
-          <%# 投稿内容(最初の一件と最後の10件を表示) %>
-          <%= "コメント10"%></p>
+          <span class="escaped"><%= simple_format comment_last.comment %></p>
         </div>
       </div>
+    <% end %>
   </div>
+
+
 
 <!--新規スレッド作成-->
  <!--action部分はまだ出来ていないと思うので""にしてます-->
