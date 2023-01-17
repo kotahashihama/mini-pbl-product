@@ -19,4 +19,36 @@
     background-color: #efefef;
     text-align: left;
   }
+
+  .post {
+    background-color: #efefef;
+
+    .meta {
+      .number {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .name {
+        color: #008000;
+        font-size: 15px;
+      }
+
+      .date {
+        color: #333;
+        font-size: 14px;
+      }
+
+      .user-id {
+        color: #333;
+        font-size: 14px;
+      }
+    }
+
+    .post-content {
+      color: #333;
+      font-size: 17px;
+    }
+  }
+
 }
