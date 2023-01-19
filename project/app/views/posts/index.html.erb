@@ -38,39 +38,53 @@
   </h2>
 
 <!--編集中-->
-<div class="posts">
 <%# 各スレッドごとにコメントを表示 %>
 <div class="posts">
-  <% for num in 1..@posts.last.id do %>
-    <% @posts.where(id: num).each do |post| %>
-      <%= post.title %>
-       <% @comments.where(post_id: num).each do |comment| %>
+  <% for num in 1..@posts.size do %>
+    <div style="border: solid 1px #000; border-radius: 12px; margin-bottom: 20px; padding: 8px">
+      <% @posts.where(id: num).first(10).each do |post| %>
+        <h2><%= post.title %></h2>
         <div class="post">
           <div class="meta">
             <span class="number">
-              <%= comment.id %>
+              <%= post.comments.first.id %>
             </span>
-
             <span class="name">
-              <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
+              <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
             </span>
-
             <span class="date">
-              <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+              <%= post.comments.first.created_at.strftime('%Y/%m/%d %H:%M') %>
             </span>
           </div>
-
           <div class="post-content">
-            <span class="escaped"><%= simple_format comment.comment %></p>
+            <span class="escaped"><%= simple_format post.comments.first.comment %></p>
           </div>
         </div>
+        <% if @comments.where(post_id: num).size > 1 %>
+          <% @comments.where(post_id: num).drop(1).last(3).each do |comment| %>
+            <div class="post">
+              <div class="meta">
+                <span class="number">
+                  <%= comment.id %>
+                </span>
+                <span class="name">
+                  <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
+                </span>
+                <span class="date">
+                  <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+                </span>
+              </div>
+              <div class="post-content">
+                <span class="escaped"><%= simple_format comment.comment %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-    <% end %>
-    <br>
-    <br>
+        <%= link_to "全部読む", post_path(post) %>
+      <% end %>
+    </div>
   <% end %>
 </div>
-
 <%# 投稿フォーム %>
 <%= form_with model: @post do |form| %>
   <h2>
