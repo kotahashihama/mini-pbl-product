@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
   def index
+    Rails.logger.debug "index now"
     # スレッド一覧取得メソッド
     @posts = Post.all
+    Rails.logger.debug @posts
     @post = Post.new
     # 下記記載がないと、.erbファイルでfields_forを使用したときに要素自体が表示されない
     @post.comments.build
+    # 追加分
+    @comments = Comment.all
+    @comment = Comment.new
   end
 
   def show
