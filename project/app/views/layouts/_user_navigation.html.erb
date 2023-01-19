@@ -11,7 +11,8 @@
 
   <ul class="user-navigation-list">
     <% if user_signed_in? %>
-      <li class="user-navigation-list-item"><%= button_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+      <li class="user-navigation-list-item"><%= button_to('/users/show') do %><%= current_user.name %> さん<% end %></li>
+      <li class="user-navigation-list-item"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete  %></li>
     <% else %>
       <li class="user-navigation-list-item"><%= button_to '新規登録', '/users/sign_up', method: :get %></li>
       <li class="user-navigation-list-item"><%= button_to 'ログイン', '/users/sign_in', method: :get %></li>

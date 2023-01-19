@@ -14,7 +14,7 @@ module Users
     def create
       build_resource(sign_up_params)
 
-      resource.save
+      #resource.save
       yield resource if block_given?
       if resource.persisted?
         if resource.active_for_authentication?
@@ -57,11 +57,20 @@ module Users
     #   super
     # end
 
-    # protected
+    #protected
 
     # If you have extra params to permit, append them to the sanitizer.
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    end
+
+    def update_resource(resource, params)
+      resource.update_without_current_password(params) #独自のメソッド。解説は下記にて。
+    end
+  
+    #更新後のパスを指定。マイページに戻るように設定。
+    def after_update_path_for(resource)
+      user_path(@user.id)
     end
 
     # If you have extra params to permit, append them to the sanitizer.

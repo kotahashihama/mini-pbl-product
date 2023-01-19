@@ -1,16 +1,26 @@
-<h2>G1 ちゃんねるのメンバーになろう</h2>
+<h2>Sign up</h2>
 
-<%= form_with model: @user, url: registration_path(resource_name), local: true do |f| %>
-  <%= render "devise/common/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :birthday %>
+    <%= f.date_select :birthday, use_month_numbers:true, start_date: 1970, end_year:Time.now.year, default: Date.new(1970, 1, 1) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "nickname" %>
+    <%= f.label :occupation %>
+    <%= f.select :occupation, [['会社員', 1], ['公務員', 2],['自営業', 3],['会社役員', 4],['学生', 5]], {}, { id: "occupation_id", class: "occupation_class" } %>
   </div>
 
   <div class="field">
@@ -22,13 +32,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "登録" %>
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
-<%= render "devise/common/links" %>
+<%= render "devise/shared/links" %>

@@ -21,6 +21,13 @@
       <% if alert.present? %>
         <p class="flash-message alert"><%= alert %></p>
       <% end %>
+
+      <% if current_user.present? %>
+        <p>こんにちは、<%= current_user.name %>さん！</p>
+      <% else %>
+        <p>こんにちは、ゲストさん！</p>
+      <% end %>
+
     </div>
 
     <%= yield %>
