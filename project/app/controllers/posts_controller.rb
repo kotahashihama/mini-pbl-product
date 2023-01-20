@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     # 追加分
     @comments = Comment.all
     @comment = Comment.new
+    @users = User.all
   end
 
   def show
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
     @comments = add_anchor_link_for_show(Comment.where(post_id: params[:id]))
     @comment = Comment.new
     @post_title = Post.find(params[:id]).title
+    @users = User.all
   end
 
   def create
@@ -55,6 +57,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
+    params.require(:post).permit(:title, comments_attributes: [:comment, :contributor, :user_id])
   end
 end

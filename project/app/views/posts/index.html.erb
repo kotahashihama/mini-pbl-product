@@ -48,9 +48,17 @@
           <span class="number">
             <%= post.comments.first.serial_id %>
           </span>
-          <span class="name">
-            <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
-          </span>
+
+          <% if !post.comments.first.user_id.nil? %>
+            <span class="name">
+              <%= @users.find(post.comments.first.user_id).name %> ◆
+            </span>
+          <% else %>
+            <span class="name">
+              <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
+            </span>
+          <% end %>
+
           <span class="date">
             <%= post.comments.first.created_at.strftime('%Y/%m/%d %H:%M') %>
           </span>
@@ -66,9 +74,17 @@
               <span class="number">
                 <%= comment.serial_id %>
               </span>
-              <span class="name">
-                <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
-              </span>
+
+              <% if !comment.user_id.nil? %>
+                <span class="name">
+                  <%= @users.find(comment.user_id).name %> ◆
+                </span>
+              <% else %>
+                <span class="name">
+                  <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
+                </span>
+              <% end %>
+
               <span class="date">
                 <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
               </span>
@@ -99,11 +115,18 @@
     <br>
   </div>
   <%= form.fields_for :comments do |comment| %>
+
+  <% if current_user %>
+    <%= comment.hidden_field :contributor, :value => '' %>
+    <%= comment.hidden_field :user_id, :value => current_user.id %>
+  <% else %>
     <div class="mb-5">
       <%= comment.label "名前　　　　　　：" %>
       <%= comment.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
       <br>
     </div>
+  <% end %>
+
     <div class="mb-5">
       <%= comment.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
     </div>
