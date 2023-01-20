@@ -9,7 +9,7 @@
   <%# 投稿 %>
   <div class="posts">
     <% @comments.each do |comment| %>
-      <div class="post">
+      <div class="post" id="comment-<%= comment.serial_id %>">
         <div class="meta">
           <span class="number">
             <%= comment.serial_id %>

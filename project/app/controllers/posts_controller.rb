@@ -14,7 +14,8 @@ class PostsController < ApplicationController
 
   def show
     # show.html.erbに遷移するとこのメソッドを読みに来るので、対象post_idに紐づくcomment一覧を返す
-    @comments = Comment.where(post_id: params[:id])
+    comments = Comment.where(post_id: params[:id])
+    @comments = add_anchor_link(comments)
     @comment = Comment.new
     @post_title = Post.find(params[:id]).title
   end
@@ -25,6 +26,15 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def add_anchor_link(comments)
+    comments.each do |comment|
+      comment.comment = comment.comment.gsub(/>>\d+/) do |match|
+        serial_id = match.gsub('>>', '')
+        "<a href='#comment-#{serial_id}'>#{match}</a>"
+      end
+    end
+  end
 
   def post_params
     params.require(:post).permit(:title, comments_attributes: [:comment, :contributor])
