@@ -26,7 +26,7 @@
     <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
       <% @posts.each do |post| %>
         <p class="thread-detail">
-          <%= link_to post.title, post_path(post) %>
+          <%= link_to "#{post.title} (#{post.comments.count})", post_path(post) %>
         </p>
       <% end %>
     </div>
