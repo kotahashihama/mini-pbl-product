@@ -15,9 +15,15 @@
             <%= comment.serial_id %>
           </span>
 
-          <span class="name">
-            <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
-          </span>
+          <% if !comment.user_id.nil? %>
+            <span class="name">
+              <%= @users.find(comment.user_id).name %> ◆
+            </span>
+          <% else %>
+            <span class="name">
+              <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
+            </span>
+          <% end %>
 
           <span class="date">
             <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
@@ -35,18 +41,25 @@
 
   <%# 投稿フォーム %>
   <div class="form-box">
-    <div class="form-header">レスを投稿する</div>
+    <h2 class="form-header">レスを投稿する</h2>
 
     <%= form_with model: @comment do |form| %>
-      <div>
-        <%= form.text_field :contributor, :class => 'one-line-post-field', :placeholder => '名前' %>
-      </div>
+      <% if current_user %>
+        <%= form.hidden_field :contributor, :value => '' %>
+      <% else %>
+        <div>
+          <%= form.text_field :contributor, :class => 'one-line-post-field', :placeholder => '名前' %>
+        </div>
+      <% end %>
 
       <div>
         <%= form.text_area :comment, :class => 'multi-line-post-field', :placeholder => 'コメント内容' %>
       </div>
 
       <%= form.hidden_field :post_id, :value => params[:id] %>
+      <% if current_user %>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+      <% end %>
 
       <button class="submit-button" type="submit" name="submit">書き込む</button>
     <% end %>

@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @comments = add_anchor_link_for_show(Comment.where(post_id: params[:id]))
     @comment = Comment.new
     @post_title = Post.find(params[:id]).title
+    @users = User.all
   end
 
   def create
