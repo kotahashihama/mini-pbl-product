@@ -64,7 +64,7 @@
           <div class="post" id="post-<%= post.id %>-comment-<%= comment.serial_id %>">
             <div class="meta">
               <span class="number">
-                <%= comment.id %>
+                <%= comment.serial_id %>
               </span>
               <span class="name">
                 <%= comment.contributor.empty? ? '名無しさん' : comment.contributor %>
@@ -83,7 +83,8 @@
     </div>
   <% end %>
 </div>
-<%# 投稿フォーム %>
+
+<%# スレッド作成フォーム %>
 <%= form_with model: @post do |form| %>
   <h2>
     <span class="common">新規スレッド作成</span>
