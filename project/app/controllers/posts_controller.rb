@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     # show.html.erbに遷移するとこのメソッドを読みに来るので、対象post_idに紐づくcomment一覧を返す
     @comments = Comment.where(post_id: params[:id])
     @comment = Comment.new
+    @post_title = Post.find(params[:id]).title
   end
 
   def create
