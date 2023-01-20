@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     # 追加分
     @comments = Comment.all
     @comment = Comment.new
+    @users = User.all
   end
 
   def show
