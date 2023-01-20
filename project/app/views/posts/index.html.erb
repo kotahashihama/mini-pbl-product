@@ -51,7 +51,7 @@
 
           <% if !post.comments.first.user_id.nil? %>
             <span class="name">
-              <%= @users.find(comment.user_id).name %> ◆
+              <%= @users.find(post.comments.first.user_id).name %> ◆
             </span>
           <% else %>
             <span class="name">
@@ -115,11 +115,18 @@
     <br>
   </div>
   <%= form.fields_for :comments do |comment| %>
+
+  <% if current_user %>
+    <%= comment.hidden_field :contributor, :value => '' %>
+    <%= comment.hidden_field :user_id, :value => current_user.id %>
+  <% else %>
     <div class="mb-5">
       <%= comment.label "名前　　　　　　：" %>
       <%= comment.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
       <br>
     </div>
+  <% end %>
+
     <div class="mb-5">
       <%= comment.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
     </div>
