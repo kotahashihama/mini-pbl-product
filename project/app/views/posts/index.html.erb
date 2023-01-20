@@ -40,13 +40,13 @@
 <!--編集中-->
 <%# 各スレッドごとにコメントを表示 %>
 <div class="posts">
-  <% @posts.all.first(10).each do |post| %>
+  <% @posts.first(10).each do |post| %>
     <div style="border: solid 1px #000; border-radius: 12px; margin-bottom: 20px; padding: 8px">
       <h2><%= post.title %></h2>
-      <div class="post">
+      <div class="post" id="post-<%= post.id %>-comment-<%= post.comments.first.serial_id %>">
         <div class="meta">
           <span class="number">
-            <%= post.comments.first.id %>
+            <%= post.comments.first.serial_id %>
           </span>
           <span class="name">
             <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
@@ -61,7 +61,7 @@
       </div>
       <% if post.comments.size > 1 %>
         <% post.comments.drop(1).last(3).each do |comment| %>
-          <div class="post">
+          <div class="post" id="post-<%= post.id %>-comment-<%= comment.serial_id %>">
             <div class="meta">
               <span class="number">
                 <%= comment.id %>
