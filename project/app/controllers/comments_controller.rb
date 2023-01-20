@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.create(comment_params)
+    serial_id = Comment.where(post_id: params[:comment][:post_id]).count + 1
+    processed_comment_params = comment_params
+    processed_comment_params['serial_id'] = serial_id
+    @comment = Comment.create(processed_comment_params)
 
     redirect_to controller: :posts, action: :show, id: @comment.post_id
   end
