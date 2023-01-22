@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   def index
     Rails.logger.debug "index now"
     # スレッド一覧取得メソッド
-    @posts = add_anchor_link_for_index(Post.all)
+    posts = add_anchor_link_for_index(Post.all)
+    @posts = posts.sort_by { |post| post.comments.last.created_at }.reverse
     Rails.logger.debug @posts
     @post = Post.new
     # 下記記載がないと、.erbファイルでfields_forを使用したときに要素自体が表示されない
