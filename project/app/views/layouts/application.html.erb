@@ -23,6 +23,14 @@
       <% end %>
     </div>
 
+    <div><%= link_to 'マイページ', mypage_path %></div>
+      <% if user_signed_in? %>
+        <div><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+      <% else %>
+        <div><%= link_to 'ログイン', new_user_session_path %></div>
+        <div><%= link_to 'アカウント作成', new_user_registration_path %></div>
+      <% end %>
+
     <%= yield %>
   </body>
 </html>
