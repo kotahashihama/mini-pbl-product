@@ -1,16 +1,8 @@
-# require 'rails_helper'
-
-# RSpec.describe "Posts", type: :request do
-#   describe "GET /index" do
-#     pending "add some examples (or delete) #{__FILE__}"
-#   end
-# end
-
 require 'rails_helper'
 
 RSpec.describe "Posts" do
   describe 'index' do
-    example 'index アクションで正常なレスポンスが返ってくる' do
+    example 'スレッド一覧ページを表示できる' do
       get '/'
       expect(response).to have_http_status(:ok)
     end
@@ -18,12 +10,20 @@ RSpec.describe "Posts" do
 
   describe 'show' do
     before do
-      @post = Post.create!(title: 'スレッドタイトル', comments_attributes: [{ comment: '内容', contributor: 'ななしくん' }])
+      @post = Post.create!(title: 'スレッドタイトル', comments_attributes: [{ comment: 'はろー', contributor: 'ななしくん' }])
     end
 
-    example 'show アクションで正常なレスポンスが返ってくる' do
+    example 'スレッド詳細ページを表示できる' do
       get post_path(@post)
       expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'create' do
+    example 'スレッドを作成できる' do
+      post_params = { post: { title: 'スレッドタイトル', comments_attributes: { '0' => { comment: 'はろー', contributor: 'ななしくん' } } } }
+      post posts_path, params: post_params
+      expect(response).to have_http_status(:found)
     end
   end
 end
