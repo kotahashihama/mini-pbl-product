@@ -29,6 +29,8 @@ RSpec.describe "Posts" do
 
   describe '#add_anchor_link_for_index' do
     before do
+      @posts_controller = PostsController.new
+
       post = Post.create!(title: 'スレッドタイトル', comments_attributes: [{ comment: '>>1 です。よろしく', contributor: 'ななしくん' }])
       post.comments.create!(comment: '>>1 おっす', contributor: 'のねむちゃん')
       post.comments.create!(comment: '>>2 ういす', contributor: '')
@@ -38,16 +40,14 @@ RSpec.describe "Posts" do
 
     context 'メンション対象のコメントがスレッド抜粋一覧に表示されている場合' do
       example 'スレッド抜粋一覧上でのページ内リンクを付与できる' do
-        posts_controller = PostsController.new
-        posts = posts_controller.send(:add_anchor_link_for_index, Post.all)
+        posts = @posts_controller.send(:add_anchor_link_for_index, Post.all)
         expect(posts[0].comments[3].comment).to eq "<a href='#post-1-comment-3'>>>3</a> よー"
       end
     end
 
     context 'メンション対象のコメントがスレッド抜粋一覧に表示されていない場合' do
       example 'スレッド詳細ページでのページ内リンクを付与できる' do
-        posts_controller = PostsController.new
-        posts = posts_controller.send(:add_anchor_link_for_index, Post.all)
+        posts = @posts_controller.send(:add_anchor_link_for_index, Post.all)
         expect(posts[0].comments[2].comment).to eq "<a href='/posts/1#comment-2'>>>2</a> ういす"
       end
     end
@@ -55,12 +55,13 @@ RSpec.describe "Posts" do
 
   describe '#add_anchor_link_for_show' do
     before do
+      @posts_controller = PostsController.new
+
       @post = Post.create!(title: 'スレッドタイトル', comments_attributes: [{ comment: '>>1 です。よろしく', contributor: 'ななしくん' }])
     end
 
     example 'メンションのテキストにページ内リンクを付与できる' do
-      posts_controller = PostsController.new
-      comments = posts_controller.send(:add_anchor_link_for_show, Comment.where(post_id: @post.id))
+      comments = @posts_controller.send(:add_anchor_link_for_show, Comment.where(post_id: @post.id))
       expect(comments[0].comment).to eq "<a href='#comment-1'>>>1</a> です。よろしく"
     end
   end
