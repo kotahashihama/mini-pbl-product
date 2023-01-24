@@ -11,6 +11,7 @@
 
   <ul class="user-navigation-list">
     <% if user_signed_in? %>
+      <li class="user-navigation-list-item"><%= button_to "マイページ", '/mypage', method: :get %></li>
       <li class="user-navigation-list-item"><%= button_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
     <% else %>
       <li class="user-navigation-list-item"><%= button_to '新規登録', '/users/sign_up', method: :get %></li>
