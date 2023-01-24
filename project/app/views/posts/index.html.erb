@@ -10,63 +10,77 @@
   </h1>
 
 <!--G1ちゃんねるの概要を表示-->
-  <h1>
-    <span class="common">G1ちゃんねる概要</span>
-  </h1>
-  <div style="line-height:1em;">
-    <p><font size="5">まだ開発中です。これから機能を拡充していきます!</font></p>
+  <div class="background">
+    <h1>
+      <span class="common">G1ちゃんねる概要</span>
+    </h1>
+    <div style="line-height:1em;">
+      <p><font size="5">G1ちゃんねるにようこそ！時事ネタから履修相談までなんでもどうぞ！</font></p>
+      <p><font size="5">現在実装している主な機能は以下になります！</font></p>
+      <p><font size="5">・スレッド新規作成機能</font></p>
+      <p><font size="5">・コメント追加機能</font></p>
+      <p><font size="5">・スレッドタイトル一覧機能</font></p>
+      <p><font size="5">・スレッド抜粋一覧機能</font></p>
+      <p><font size="5">・ユーザー新規登録</font></p>
+      <p><font size="5">・ログイン機能</font></p>
+      <p><font size="5">・なりすまし防止機能</font></p>
+      <p><font size="5"></font></p>
+
+    </div>
+    <br>
   </div>
-  <br>
 
 <!--スレッドタイトル一覧を表示(仕様は100件表示)-->
-  <h2>
-    <span class="common">この掲示板の主なスレッド</span>
-  </h2>
-  <div class="thread-list">
-    <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
-      <% @posts.each do |post| %>
-        <p class="thread-detail">
-          <%= link_to "#{post.title} (#{post.comments.count})", post_path(post) %>
-        </p>
-      <% end %>
+  <div class="background">
+    <h2>
+      <span class="common">この掲示板の主なスレッド</span>
+    </h2>
+    <div class="thread-list">
+      <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
+        <% @posts.each do |post| %>
+          <p class="thread-detail">
+            <%= link_to "#{post.title} (#{post.comments.count})", post_path(post) %>
+          </p>
+        <% end %>
+      </div>
     </div>
   </div>
 
-<!--スレッド一覧を表示(仕様は10件表示)-->
-  <h2>
-    <span class="common">スレッド抜粋一覧</span>
-  </h2>
+  <div class="background">
+    <!--スレッド一覧を表示(仕様は10件表示)-->
+    <h2>
+      <span class="common">スレッド抜粋一覧</span>
+    </h2>
 
-<!--編集中-->
-<%# 各スレッドごとにコメントを表示 %>
-<div class="posts">
-  <% @posts.first(10).each do |post| %>
-    <div style="border: solid 1px #000; border-radius: 12px; margin-bottom: 20px; padding: 8px">
-      <h2><%= post.title %></h2>
-      <div class="post" id="post-<%= post.id %>-comment-<%= post.comments.first.serial_id %>">
-        <div class="meta">
-          <span class="number">
-            <%= post.comments.first.serial_id %>
-          </span>
-
-          <% if !post.comments.first.user_id.nil? %>
-            <span class="name">
-              <%= @users.find(post.comments.first.user_id).name %> ◆
+    <%# 各スレッドごとにコメントを表示 %>
+    <div class="posts">
+      <% @posts.first(10).each do |post| %>
+        <div class="thread-box">
+          <h2><%= post.title %></h2>
+        <div class="post" id="post-<%= post.id %>-comment-<%= post.comments.first.serial_id %>">
+          <div class="meta">
+            <span class="number">
+              <%= post.comments.first.serial_id %>
             </span>
-          <% else %>
-            <span class="name">
-              <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
-            </span>
-          <% end %>
 
-          <span class="date">
-            <%= post.comments.first.created_at.strftime('%Y/%m/%d %H:%M') %>
-          </span>
-        </div>
-        <div class="post-content">
+            <% if !post.comments.first.user_id.nil? %>
+              <span class="name">
+                <%= @users.find(post.comments.first.user_id).name %> ◆
+              </span>
+            <% else %>
+              <span class="name">
+                <%= post.comments.first.contributor.empty? ? '名無しさん' : post.comments.first.contributor %>
+              </span>
+            <% end %>
+
+            <span class="date">
+              <%= post.comments.first.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </span>
+          </div>
+          <div class="post-content">
           <span class="escaped"><%= simple_format post.comments.first.comment %></p>
         </div>
-      </div>
+        </div>
       <% if post.comments.size > 1 %>
         <% post.comments.drop(1).last(3).each do |comment| %>
           <div class="post" id="post-<%= post.id %>-comment-<%= comment.serial_id %>">
@@ -88,48 +102,50 @@
               <span class="date">
                 <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
               </span>
+              </div>
+              <div class="post-content">
+                <span class="escaped"><%= simple_format comment.comment %></p>
+              </div>
             </div>
-            <div class="post-content">
-              <span class="escaped"><%= simple_format comment.comment %></p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= link_to "全部読む", post_path(post) %>
+        <%= link_to "全部読む", post_path(post) %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
-</div>
-
+  </div>
 <%# スレッド作成フォーム %>
-<%= form_with model: @post do |form| %>
-  <h2>
-    <span class="common">新規スレッド作成</span>
-  </h2>
-  <div class="mb-5">
-    <%= form.submit "新規スレッド作成" %>
-    <br>
-  </div>
-  <div class="mb-5">
-    <%= form.label :title, "スレッドタイトル：" %>
-    <%= form.text_field :title, :class => 'text-field', :placeholder => 'スレッドタイトル' %>
-    <br>
-  </div>
-  <%= form.fields_for :comments do |comment| %>
-
-  <% if current_user %>
-    <%= comment.hidden_field :contributor, :value => '' %>
-    <%= comment.hidden_field :user_id, :value => current_user.id %>
-  <% else %>
+<div class="background">
+  <%= form_with model: @post do |form| %>
+    <h2>
+      <span class="common">新規スレッド作成</span>
+    </h2>
     <div class="mb-5">
-      <%= comment.label "名前　　　　　　：" %>
-      <%= comment.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
+      <%= form.submit "新規スレッド作成" %>
       <br>
     </div>
-  <% end %>
-
     <div class="mb-5">
-      <%= comment.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
+      <%= form.label :title, "スレッドタイトル：" %>
+      <%= form.text_field :title, :class => 'text-field', :placeholder => 'スレッドタイトル' %>
+      <br>
     </div>
+    <%= form.fields_for :comments do |comment| %>
+
+    <% if current_user %>
+      <%= comment.hidden_field :contributor, :value => '' %>
+      <%= comment.hidden_field :user_id, :value => current_user.id %>
+    <% else %>
+      <div class="mb-5">
+        <%= comment.label "名前　　　　　　：" %>
+        <%= comment.text_field :contributor, :class => 'text-field', :placeholder => '名前' %>
+        <br>
+      </div>
+    <% end %>
+
+      <div class="mb-5">
+        <%= comment.text_area :comment, :class => 'text-area-field', :placeholder => '内容' %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+  </div>
 </main>

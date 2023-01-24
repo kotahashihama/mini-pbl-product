@@ -15,9 +15,10 @@
 
   .thread-list {
     color: #333333;
-    font-size: 14px;
-    background-color: #efefef;
+    font-size: 17px;
+    background: #EFE;
     text-align: left;
+    border-radius: 0.75em / 0.75em; 
   }
 
   .post {
@@ -59,8 +60,37 @@
     width: 40em;
     height: 10em;
   }
+
+  .common {
+    padding: 0.25em 0.50em; 
+    border-radius: 0.25em / 0.25em; 
+    background: #39F; color: #FFF; 
+    
+  }
+  
+  .background {
+    z-index:  1; 
+    width: 93%; 
+    margin: 0.5em auto 0.75em auto; 
+    padding: 0.75em; 
+    border: 1px solid #333; 
+    color: #333; 
+    border-radius: 0.75em / 0.75em; 
+    background: #CFC; 
+    font-size: 1.00em;
+  }
+  
+  .thread-box {
+    border: solid 1px #000; 
+    border-radius: 12px; 
+    margin-bottom: 20px; 
+    padding: 8px;
+    background-color: #e2e1e1;
+  }
+
 }
 
 .mb-5 {
   margin-bottom: 5px;
 }
+
