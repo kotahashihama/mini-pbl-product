@@ -1,0 +1,36 @@
+<%#
+  スレッド一覧画面の構造
+  URL パス: /posts/search
+%>
+<main class="posts-index">
+  <h1 class="top">
+    <%= link_to 'G1ちゃんねる', '/' %>
+  </h1>
+  <h2>
+    <span class="">スレッド検索結果</span>
+  </h2>
+  <div style="margin-bottom: 2rem">
+    <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
+      <%= f.text_field :title, :class => 'search-field', :value => "#{@title}"%>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+<!--スレッドタイトル一覧を表示(仕様は100件表示)-->
+  <div class="thread-list">
+    <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
+      <% if @posts.any? %>
+        <% @posts.each do |post| %>
+          <p class="thread-detail thread-search-result">
+            <%= link_to "#{post.title} (#{post.comments.count})", post_path(post) %>
+          </p>
+        <% end %>
+      <% else %>
+        ※キーワードに一致するスレッドは見つかりませんでした。
+      <% end %>
+    </div>
+  </div>
+  <div class="mt-3r">
+    <%= link_to '掲示板に戻る', '/' %>
+  </div>
+</main>

@@ -28,6 +28,11 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @title = "#{params[:title]}"
+    @posts = Post.where("title LIKE?", "%#{@title}%")
+  end
+
   private
 
   def add_anchor_link_for_index(posts)
