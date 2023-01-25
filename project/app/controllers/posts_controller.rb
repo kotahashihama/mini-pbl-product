@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @title = "#{params[:title]}"
+    @title = params[:title].to_s
     @posts = Post.where("title LIKE?", "%#{@title}%")
   end
 
