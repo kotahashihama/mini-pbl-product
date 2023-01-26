@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/mypage', to: 'users#mypage'
+
   root "posts#index"
   resources :posts do
     collection do

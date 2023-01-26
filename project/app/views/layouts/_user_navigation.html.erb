@@ -3,14 +3,9 @@
     <%= link_to "G1 ちゃんねる", root_path %>
   </div>
 
-  <% if user_signed_in? %>
-    <div>
-      <%= current_user.name %> さん
-    </div>
-  <% end %>
-
   <ul class="user-navigation-list">
     <% if user_signed_in? %>
+      <li class="user-navigation-list-item"><%= link_to current_user.name, '/mypage' %> さん</li>
       <li class="user-navigation-list-item"><%= button_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
     <% else %>
       <li class="user-navigation-list-item"><%= button_to '新規登録', '/users/sign_up', method: :get %></li>
