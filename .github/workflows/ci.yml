@@ -67,5 +67,5 @@ jobs:
         working-directory: ./project
 
       - name: Test Ruby with RSpec
-        run: rails t
+        run: rspec
         working-directory: ./project
