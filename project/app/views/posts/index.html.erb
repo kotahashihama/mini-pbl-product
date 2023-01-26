@@ -8,6 +8,13 @@
   <h1 class="top">
     <%= link_to 'G1ちゃんねる', '/' %>
   </h1>
+  <div class="search_posts">
+    <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
+      <%= f.text_field :title %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
 
 <!--G1ちゃんねるの概要を表示-->
   <div class="background">
