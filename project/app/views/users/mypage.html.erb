@@ -18,8 +18,8 @@
       </div>
 
       <div style="padding: 16px; background: #fff; border-radius: 8px;">
-        <% if current_user.comments.present? %>
-          <% current_user.comments.each do |comment| %>
+        <% if @comments.present? %>
+          <% @comments.each do |comment| %>
             <div style="font-size: 1.2rem; margin-bottom: 24px;">
               <div style="font-size: 14px; font-weight: bold;">
                 <%= link_to comment.post.title.present? ? comment.post.title : '無題', post_path(comment.post, anchor: "comment-#{comment.serial_id}") %>
