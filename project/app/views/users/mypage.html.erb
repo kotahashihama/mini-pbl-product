@@ -1,3 +1,35 @@
-<%= current_user.id %>
-<%= current_user.name %>
-<%= current_user.email %>
+<div style="display: flex; justify-content: center; margin-top: 64px;">
+  <div style="width: 800px;">
+    <div>
+      <span style="font-size: 24px;"><%= current_user.name %></span>
+      (ID: <%= current_user.id %>)
+    </div>
+    <div style="margin-bottom: 48px; font-size: 14px;">
+      <%= current_user.email %>
+    </div>
+
+    <div style="margin-bottom: 32px;">
+      <div style="margin-bottom: 16px; font-size: 1.2rem; font-weight: bold;">
+        コメント履歴
+      </div>
+
+      <div style="padding: 16px; background: #fff; border-radius: 8px;">
+        <% current_user.comments.each do |comment| %>
+          <div style="font-size: 1.2rem; margin-bottom: 24px;">
+            <div style="font-size: 14px; font-weight: bold;">
+              <%= link_to comment.post.title.present? ? comment.post.title : '無題', post_path(comment.post, anchor: "comment-#{comment.serial_id}") %>
+            </div>
+
+            <div style="font-size: 12px; color: #aaa;">
+              <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </div>
+
+            <div style="font-size: 14px; -webkit-line-clamp: 2;">
+              <%= simple_format comment.comment, style: 'margin-top: 0;' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
