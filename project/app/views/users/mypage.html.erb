@@ -1,8 +1,12 @@
 <div style="display: flex; justify-content: center; margin-top: 64px;">
   <div style="width: 800px;">
-    <div>
-      <span style="font-size: 24px;"><%= current_user.name %></span>
-      (ID: <%= current_user.id %>)
+    <div style="display: flex; align-items: center; column-gap: 24px;">
+      <span style="font-size: 24px;">
+        <%= current_user.name %>
+      </span>
+      <span style="font-size: 14px;">
+        ID: <%= current_user.id %>
+      </span>
     </div>
     <div style="margin-bottom: 48px; font-size: 14px;">
       <%= current_user.email %>
