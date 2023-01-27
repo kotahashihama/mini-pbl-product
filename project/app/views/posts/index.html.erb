@@ -6,7 +6,7 @@
 
 <main class="posts-index">
   <h1 class="top">
-    <%= link_to 'G1ちゃんねる', '/' %>
+    G1ちゃんねる
   </h1>
   <div class="search_posts">
     <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
@@ -16,7 +16,7 @@
   </div>
 
 
-<!--G1ちゃんねるの概要を表示-->
+  <!--G1ちゃんねるの概要を表示-->
   <div class="background">
     <h1>
       <span class="common">G1ちゃんねる概要</span>
@@ -46,7 +46,7 @@
       <div style="margin: 0; padding: 0 0 0 0.5em; border-radius: 0.50em / 0.50em; padding: 0 0 1.0em 0.5em; height: 25em; overflow-y: scroll">
         <% @posts.each do |post| %>
           <p class="thread-detail">
-            <%= link_to "#{post.title} (#{post.comments.count})", post_path(post) %>
+            <%= link_to "#{post.title.present? ? post.title : '無題'} (#{post.comments.count})", post_path(post) %>
           </p>
         <% end %>
       </div>
@@ -63,7 +63,7 @@
     <div class="posts">
       <% @posts.first(10).each do |post| %>
         <div class="thread-box">
-          <h2><%= post.title %></h2>
+          <h2><%= post.title.present? ? post.title : '無題' %></h2>
         <div class="post" id="post-<%= post.id %>-comment-<%= post.comments.first.serial_id %>">
           <div class="meta">
             <span class="number">
