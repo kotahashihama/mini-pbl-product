@@ -49,24 +49,14 @@ body {
 .form-header {
   color: #48526a;
   font-size: 16px;
+}
 
-  .form {
-    .one-line-post-field {
-      background-color: #fff;
-      padding: 6px 12px;
-      margin: 0px 0px 15px;
-    }
+.one-line-post-field {
+  width: 24em;
+  margin: 0px 0px 10px;
+}
 
-    .multi-line-post-field {
-      background-color: #fff;
-      padding: 6px 12px;
-      margin: 0px 0px 15px;
-    }
-
-    .submit-buttton {
-      background-color: #333;
-      color: #fff;
-      margin: 0px 0px 10px;
-    }
-  }
+.multi-line-post-field {
+  width: 40em;
+  height: 10em;
 }
